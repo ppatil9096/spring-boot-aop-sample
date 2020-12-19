@@ -20,8 +20,13 @@ public class EmployeeController {
 	}
 
 	@RequestMapping(value = "/remove/employee", method = RequestMethod.GET)
-	public String removeEmployee(@RequestParam("empId") String empId) {
-		employeeService.deleteEmployee(empId);
+	public String removeEmployee(@RequestParam("empId") String empId) throws Exception {
+		try {
+			employeeService.deleteEmployee(empId);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+
 		return "Employee removed";
 	}
 }

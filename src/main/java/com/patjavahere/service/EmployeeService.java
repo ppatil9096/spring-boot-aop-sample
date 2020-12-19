@@ -10,10 +10,13 @@ public class EmployeeService {
 		final var emp = new Employee();
 		emp.setEmpId(empId);
 		emp.setFirstName(firstName);
-		System.out.println("created...");
+		System.out.println("Employee created...");
 		return emp;
 	}
 
-	public void deleteEmployee(final String empId) {
+	public void deleteEmployee(final String empId) throws Exception {
+		if (empId.length() == 0) {
+			throw new Exception();
+		}
 	}
 }
